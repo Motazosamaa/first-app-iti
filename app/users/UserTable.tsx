@@ -15,7 +15,7 @@ interface Props {
 const UserTable = async ({ orderBy }: Props) => {
   const res = await fetch("https://jsonplaceholder.typicode.com/posts");
   const posts: Post[] = await res.json();
-  const sortedPosts = sort(posts).asc(orderBy==="id"?post=>post.id:post=>post.body);
+  const sortedPosts = sort(posts).asc(orderBy==="id"?post=>post.id:post=>post.title);
 
     // orderBy => u.id,
     // orderBy => u.title,
@@ -26,9 +26,9 @@ const UserTable = async ({ orderBy }: Props) => {
     <div>
       <table className="table table-dark table-striped">
         <thead style={{ backgroundColor: "#212529", textAlign: "center" }}>
-          <th> <Link href="/users?orderBy=id">ID</Link> </th>
-          <th><Link href="/users?orderBy=title"> Title</Link> </th>
-          <th>Body </th>
+         <th><Link href="/users?orderBy=id"> ID </Link></th>
+        <th> <Link href="/users?orderBy=title">  Title </Link></th>
+        <th>Body </th>
         </thead>
 
         <tbody>
