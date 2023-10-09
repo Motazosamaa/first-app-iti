@@ -1,9 +1,28 @@
-import React from 'react'
+import React, { cache } from 'react'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import UserTable from './UserTable';
 
-const page = () => {
+interface Props{
+  searchParams:{orderBy:string}
+  
+  } 
+
+
+const page = async({searchParams:{orderBy}}:Props) => {
+
+    
+  
   return (
-    <div>
-    <h1> Hello Users,...</h1>
+    <div> 
+
+      
+      
+
+    
+    <UserTable orderBy={orderBy}> </UserTable>
+
+
+
     </div>
   )
 }
